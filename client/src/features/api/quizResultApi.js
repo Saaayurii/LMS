@@ -1,7 +1,7 @@
 // features/api/quizResultApi.js
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
-const BASE_URL = "http://localhost:8080/api/v1/quiz-result";
+const BASE_URL = `${import.meta.env.VITE_BACKEND_URL}/api/v1/quiz-result`;
 
 export const quizResultApi = createApi({
   reducerPath: "quizResultApi",
