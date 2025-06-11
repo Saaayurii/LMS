@@ -9,11 +9,13 @@ export const generateToken = (res, user, message) => {
     .status(200)
     .cookie("token", token, {
       httpOnly: true,
-      sameSite: "strict",
-      maxAge: 24 * 60 * 60 * 1000, // 1 day
-    }).json({
-        success:true,
-        message,
-        user
+      secure: true,            // ✅ ОБЯЗАТЕЛЬНО для HTTPS (Vercel/Render)
+      sameSite: "None",        // ✅ для работы куки между разными доменами
+      maxAge: 24 * 60 * 60 * 1000, // 1 день
+    })
+    .json({
+      success: true,
+      message,
+      user,
     });
 };
